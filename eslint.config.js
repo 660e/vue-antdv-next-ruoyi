@@ -5,6 +5,8 @@ import pluginVue from 'eslint-plugin-vue';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
 
+import eslintrcAutoImport from './.eslintrc-auto-import.js';
+
 export default defineConfig([
   {
     name: 'app/files-to-lint',
@@ -16,6 +18,7 @@ export default defineConfig([
   {
     languageOptions: {
       globals: {
+        ...eslintrcAutoImport.globals,
         ...globals.browser,
       },
     },

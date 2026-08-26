@@ -13,6 +13,11 @@ export default defineConfig({
   plugins: [
     // https://github.com/unplugin/unplugin-auto-import
     AutoImport({
+      eslintrc: {
+        enabled: true,
+        filepath: './.eslintrc-auto-import.js',
+        globalsPropValue: 'readonly',
+      },
       imports: ['vue', 'vue-router'],
     }),
 
