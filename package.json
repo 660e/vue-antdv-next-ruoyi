@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@antdv-next/auto-import-resolver": "^1.1.1",
+    "@antdv-next/tailwind": "^1.1.1",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-vue": "^6.0.8",

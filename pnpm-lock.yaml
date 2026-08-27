@@ -39,6 +39,9 @@ importers:
       '@antdv-next/auto-import-resolver':
         specifier: ^1.1.1
         version: 1.1.1(unplugin-vue-components@32.1.0(rolldown@1.2.4)(vite@8.2.1(jiti@2.7.0)(yaml@2.9.0))(vue@3.5.41))
+      '@antdv-next/tailwind':
+        specifier: ^1.1.1
+        version: 1.1.1(tailwindcss@4.3.3)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.8.1(jiti@2.7.0))
@@ -125,6 +128,11 @@ packages:
     resolution: {integrity: sha512-Ul4me4fx72VqA9xPYf9JVjlHq1PXO4JWGJGDtr9vPZfZYowFWDMjd7NeME1APYrJosVTMbJsArRMURbEGwbliA==}
     peerDependencies:
       vue: '>=3.2.0'
+
+  '@antdv-next/tailwind@1.1.1':
+    resolution: {integrity: sha512-HuQmufVKulhGDvd0UCQmbL//2sDXi+2cHukKREo0XbBSsK49eIn+iWCjuPZIQbchc/eZmmuCdjxSKgNxlQYRRg==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0'
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -2321,6 +2329,10 @@ snapshots:
       '@ant-design/icons-svg': 4.5.0
       '@v-c/util': 1.1.0(vue@3.5.41)
       vue: 3.5.41
+
+  '@antdv-next/tailwind@1.1.1(tailwindcss@4.3.3)':
+    dependencies:
+      tailwindcss: 4.3.3
 
   '@babel/code-frame@7.29.7':
     dependencies:
