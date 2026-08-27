@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'node:url';
 
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -24,6 +25,7 @@ export default defineConfig({
     // https://github.com/unplugin/unplugin-vue-components
     Components({
       globs: ['src/components/*/index.vue', 'src/components/*.vue'],
+      resolvers: [AntdvNextResolver()],
     }),
 
     // https://tailwindcss.com/docs/installation/using-vite

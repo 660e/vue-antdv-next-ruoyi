@@ -1,9 +1,5 @@
-<script setup>
-const env = import.meta.env;
-</script>
-
 <template>
   <div>
-    <pre>{{ env }}</pre>
+    <a-button type="primary">Primary Button</a-button>
   </div>
 </template>
