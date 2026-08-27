@@ -1,9 +1,9 @@
 <script setup>
-import { is } from "@/utils";
+const env = import.meta.env;
 </script>
 
 <template>
   <div>
-    <div>{{ is.array([1, 2, 3]) }} {{ is.array(undefined) }}</div>
+    <pre>{{ env }}</pre>
   </div>
 </template>
