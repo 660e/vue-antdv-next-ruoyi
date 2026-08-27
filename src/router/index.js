@@ -14,7 +14,7 @@ router.beforeEach((to, from) => {
   console.log(to);
   console.log(from);
 
-  document.title = globalConfig.systemName + (to.meta.title ? ` - ${to.meta.title}` : '');
+  document.title = globalConfig.app.name + (to.meta.title ? ` - ${to.meta.title}` : '');
 
   return true;
 });

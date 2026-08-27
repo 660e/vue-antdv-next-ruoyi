@@ -1,3 +1,5 @@
 export const globalConfig = {
-  systemName: '若依管理系统',
+  app: {
+    name: '若依管理系统',
+  },
 };
