@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "antdv": {
+      "command": "npx",
+      "args": ["-y", "@antdv-next/cli", "mcp"]
+    }
+  }
+}
