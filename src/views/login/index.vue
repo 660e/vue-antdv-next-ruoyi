@@ -47,14 +47,14 @@ async function submit() {
       <div class="a-color-text-secondary text-center text-xl leading-none">{{ globalConfig.app.name }}</div>
       <a-form :disabled="submitting" :model="model" @finish="submit" auto-complete="off" ref="formRef">
         <a-form-item name="username">
-          <a-input v-model:value="model.username" placeholder="请输入账号" size="large" allow-clear>
+          <a-input v-model:value="model.username" placeholder="请输入账号" size="large" tabindex="1" allow-clear>
             <template #prefix>
               <UserOutlined class="mr-1" />
             </template>
           </a-input>
         </a-form-item>
         <a-form-item name="password">
-          <a-input-password v-model:value="model.password" placeholder="请输入密码" size="large" allow-clear>
+          <a-input-password v-model:value="model.password" placeholder="请输入密码" size="large" tabindex="2" allow-clear>
             <template #prefix>
               <LockOutlined class="mr-1" />
             </template>
@@ -62,7 +62,7 @@ async function submit() {
         </a-form-item>
         <a-form-item name="code">
           <div class="flex items-center gap-6">
-            <a-input v-model:value="model.code" placeholder="请输入验证码" size="large" allow-clear>
+            <a-input v-model:value="model.code" placeholder="请输入验证码" size="large" tabindex="3" allow-clear>
               <template #prefix>
                 <ExpandOutlined class="mr-1" />
               </template>
@@ -80,7 +80,7 @@ async function submit() {
             </div>
           </div>
         </a-form-item>
-        <a-button :disabled="disabled" :loading="submitting" html-type="submit" size="large" type="primary" block>
+        <a-button :disabled="disabled" :loading="submitting" html-type="submit" size="large" tabindex="4" type="primary" block>
           {{ submitting ? '登录中...' : '登录' }}
         </a-button>
       </a-form>
