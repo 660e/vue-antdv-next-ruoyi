@@ -1,5 +1,6 @@
 <script setup>
 import Aside from './components/Aside.vue';
+import Breadcrumb from './components/Breadcrumb.vue';
 import Header from './components/Header.vue';
 </script>
 
@@ -9,8 +10,13 @@ import Header from './components/Header.vue';
 
     <div class="flex flex-1 overflow-auto">
       <Aside />
-      <div class="flex-1">
-        <RouterView />
+      <div class="flex flex-1 flex-col">
+        <div class="a-border-border-secondary flex h-8 items-center justify-between border-b px-3">
+          <Breadcrumb />
+        </div>
+        <div class="flex-1">
+          <RouterView />
+        </div>
       </div>
     </div>
   </div>
