@@ -44,7 +44,7 @@ async function submit() {
 
 <template>
   <div :style="{ backgroundImage: `url(${bgImage})` }" class="flex h-screen items-center justify-center bg-cover bg-center">
-    <div class="a-bg-base a-rounded-lg w-100 space-y-6 p-6">
+    <div class="a-bg-base a-rd-lg w-100 space-y-6 p-6">
       <div class="a-c-sec text-center text-xl leading-none">{{ globalConfig.app.name }}</div>
       <a-form :disabled="submitting" :model="model" @finish="submit" auto-complete="off" ref="formRef">
         <a-form-item name="username">
