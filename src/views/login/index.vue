@@ -2,6 +2,7 @@
 import { UserOutlined, LockOutlined, ExpandOutlined } from '@antdv-next/icons';
 
 import { captchaImage } from '@/api';
+import bgImage from '@/assets/images/login/bg.jpg';
 import { globalConfig } from '@/config/global.js';
 
 const router = useRouter();
@@ -42,8 +43,8 @@ async function submit() {
 </script>
 
 <template>
-  <div class="flex h-screen items-center justify-center">
-    <div class="a-shadow-card a-rounded-lg w-100 space-y-6 p-6">
+  <div :style="{ backgroundImage: `url(${bgImage})` }" class="flex h-screen items-center justify-center bg-cover bg-center">
+    <div class="a-bg-base a-rounded-lg w-100 space-y-6 p-6">
       <div class="a-color-text-secondary text-center text-xl leading-none">{{ globalConfig.app.name }}</div>
       <a-form :disabled="submitting" :model="model" @finish="submit" auto-complete="off" ref="formRef">
         <a-form-item name="username">
