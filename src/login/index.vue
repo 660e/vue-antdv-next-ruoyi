@@ -4,24 +4,17 @@ import { UserOutlined, LockOutlined, ExpandOutlined } from '@antdv-next/icons';
 import { captchaImage } from '@/api';
 import { globalConfig } from '@/config/global.js';
 
-const model = reactive({
-  username: '',
-  password: '',
-  code: '',
-  uuid: '',
-});
-
-const code = reactive({
-  src: '',
-  status: '',
-});
+const model = reactive({ username: '', password: '', code: '', uuid: '' });
+const code = reactive({ src: '', status: '' });
+const disabled = computed(() => !model.username || !model.password || !model.code);
+const submitting = ref(false);
 
 onMounted(() => {
   getCaptcha();
 });
 
 async function getCaptcha() {
-  if (code.status === 'loading') return;
+  if (code.status === 'loading' || submitting.value) return;
 
   code.status = 'loading';
   try {
@@ -33,13 +26,20 @@ async function getCaptcha() {
     code.status = '';
   }
 }
+
+async function submit() {
+  if (disabled.value) return;
+
+  submitting.value = true;
+  console.log(model);
+}
 </script>
 
 <template>
   <div class="flex h-screen items-center justify-center">
     <div class="a-shadow-card a-rounded-lg w-100 space-y-6 p-6">
       <div class="a-color-text-secondary text-center text-xl leading-none">{{ globalConfig.app.name }}</div>
-      <a-form :model="model" auto-complete="off" ref="formRef">
+      <a-form :disabled="submitting" :model="model" @finish="submit" auto-complete="off" ref="formRef">
         <a-form-item name="username">
           <a-input v-model:value="model.username" placeholder="请输入账号" size="large" allow-clear>
             <template #prefix>
@@ -72,7 +72,9 @@ async function getCaptcha() {
             </div>
           </div>
         </a-form-item>
-        <a-button size="large" type="primary" block>登录</a-button>
+        <a-button :disabled="disabled" :loading="submitting" html-type="submit" size="large" type="primary" block>
+          {{ submitting ? '登录中...' : '登录' }}
+        </a-button>
       </a-form>
     </div>
   </div>
