@@ -11,11 +11,11 @@ import Version from './components/Version.vue';
     <div class="flex flex-1 overflow-auto">
       <Aside />
       <div class="flex flex-1 flex-col">
-        <div class="a-b-border-sec flex h-8 items-center justify-between border-b px-3">
+        <div class="a-b-border-sec flex h-8 shrink-0 items-center justify-between border-b px-3">
           <Breadcrumb />
           <Version />
         </div>
-        <div class="flex-1">
+        <div class="flex-1 overflow-y-auto">
           <RouterView />
         </div>
       </div>
