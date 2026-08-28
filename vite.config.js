@@ -40,4 +40,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  server: {
+    proxy: {
+      '/prod-api': {
+        target: 'https://vue.ruoyi.vip',
+        changeOrigin: true,
+      },
+    },
+  },
 });

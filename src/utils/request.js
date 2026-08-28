@@ -23,7 +23,11 @@ export class Request {
         if (responseInterceptors) {
           return responseInterceptors(response);
         } else {
-          return response.data;
+          if (response.data?.code === 200) {
+            return response.data;
+          } else {
+            return response;
+          }
         }
       },
       (error) => {
@@ -68,5 +72,6 @@ export class Request {
 }
 
 export const request = new Request({
+  baseURL: import.meta.env.VITE_BASE_URL,
   timeout: 10000,
 });
