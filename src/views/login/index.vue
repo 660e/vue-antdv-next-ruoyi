@@ -45,7 +45,7 @@ async function submit() {
 <template>
   <div :style="{ backgroundImage: `url(${bgImage})` }" class="flex h-screen items-center justify-center bg-cover bg-center">
     <div class="a-bg-base a-rounded-lg w-100 space-y-6 p-6">
-      <div class="a-color-text-secondary text-center text-xl leading-none">{{ globalConfig.app.name }}</div>
+      <div class="a-c-sec text-center text-xl leading-none">{{ globalConfig.app.name }}</div>
       <a-form :disabled="submitting" :model="model" @finish="submit" auto-complete="off" ref="formRef">
         <a-form-item name="username">
           <a-input v-model:value="model.username" placeholder="请输入账号" size="large" tabindex="1" allow-clear>
@@ -75,9 +75,7 @@ async function submit() {
             >
               <a-spin v-if="code.status === 'loading'" />
               <img v-else-if="code.status === 'success'" :src="code.src" class="h-full w-full" />
-              <div v-else class="a-color-text-secondary flex h-full w-full items-center justify-center duration-200 hover:bg-neutral-100">
-                刷新验证码
-              </div>
+              <div v-else class="a-c-sec flex h-full w-full items-center justify-center duration-200 hover:bg-neutral-100">刷新验证码</div>
             </div>
           </div>
         </a-form-item>

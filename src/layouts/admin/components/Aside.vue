@@ -18,7 +18,7 @@ const items = [
 </script>
 
 <template>
-  <aside class="a-border-border-secondary overflow-y-auto border-r">
+  <aside class="a-b-border-sec overflow-y-auto border-r">
     <a-menu :items="items" :style="{ borderInlineEndWidth: 0 }" class="w-50" />
   </aside>
 </template>
