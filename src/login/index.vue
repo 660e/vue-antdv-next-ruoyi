@@ -4,6 +4,7 @@ import { UserOutlined, LockOutlined, ExpandOutlined } from '@antdv-next/icons';
 import { captchaImage } from '@/api';
 import { globalConfig } from '@/config/global.js';
 
+const router = useRouter();
 const model = reactive({ username: '', password: '', code: '', uuid: '' });
 const code = reactive({ src: '', status: '' });
 const disabled = computed(() => !model.username || !model.password || !model.code);
@@ -31,7 +32,12 @@ async function submit() {
   if (disabled.value) return;
 
   submitting.value = true;
-  console.log(model);
+  try {
+    console.log(model);
+    router.push('/');
+  } finally {
+    submitting.value = false;
+  }
 }
 </script>
 
@@ -64,11 +70,13 @@ async function submit() {
             <div
               :class="[code.status === 'loading' ? 'cursor-not-allowed' : 'cursor-pointer']"
               @click="getCaptcha"
-              class="a-bg-blue-1 flex h-10 w-30 shrink-0 items-center justify-center overflow-hidden"
+              class="flex h-10 w-30 shrink-0 items-center justify-center overflow-hidden bg-neutral-200"
             >
               <a-spin v-if="code.status === 'loading'" />
               <img v-else-if="code.status === 'success'" :src="code.src" class="h-full w-full" />
-              <div v-else class="a-bg-red-1 a-c-red-4 hover:a-bg-red-2 flex h-full w-full items-center justify-center duration-200">刷新验证码</div>
+              <div v-else class="a-color-text-secondary flex h-full w-full items-center justify-center duration-200 hover:bg-neutral-100">
+                刷新验证码
+              </div>
             </div>
           </div>
         </a-form-item>
